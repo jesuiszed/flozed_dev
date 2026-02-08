@@ -5,11 +5,11 @@ export interface Project {
   slug: string;
   title: string;
   client?: string;
-  sector: string;
+  sector?: string;
   description: string;
-  problem: string;
-  solution: string;
-  results: string[];
+  problem?: string;
+  solution?: string;
+  results?: string[];
   technologies: string[];
   image: string;
   mockups?: string[];

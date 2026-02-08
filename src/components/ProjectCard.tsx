@@ -69,7 +69,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             </p>
 
             {/* Key result */}
-            {project.results[0] && (
+            {project.results && project.results[0] && (
               <p className="text-emerald-400 text-sm font-medium">
                 ✓ {project.results[0]}
               </p>
