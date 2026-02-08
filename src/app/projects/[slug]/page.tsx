@@ -124,40 +124,46 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           {/* Main content */}
           <div className="lg:col-span-2 space-y-12">
             {/* Problem */}
-            <section>
-              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mb-4 flex items-center gap-3">
-                <span className="text-2xl">🎯</span>
-                Le Problème
-              </h2>
-              <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">{project.problem}</p>
-            </section>
+            {project.problem && (
+              <section>
+                <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mb-4 flex items-center gap-3">
+                  <span className="text-2xl">🎯</span>
+                  Le Problème
+                </h2>
+                <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">{project.problem}</p>
+              </section>
+            )}
 
             {/* Solution */}
-            <section>
-              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mb-4 flex items-center gap-3">
-                <span className="text-2xl">💡</span>
-                La Solution
-              </h2>
-              <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">{project.solution}</p>
-            </section>
+            {project.solution && (
+              <section>
+                <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mb-4 flex items-center gap-3">
+                  <span className="text-2xl">💡</span>
+                  La Solution
+                </h2>
+                <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">{project.solution}</p>
+              </section>
+            )}
 
             {/* Results */}
-            <section>
-              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mb-6 flex items-center gap-3">
-                <span className="text-2xl">📈</span>
-                Résultats
-              </h2>
-              <div className="grid sm:grid-cols-2 gap-4">
-                {project.results.map((result, index) => (
-                  <Card key={index} className="bg-emerald-500/5 border-emerald-500/20">
-                    <CardContent className="p-4 flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-emerald-400 mt-0.5 shrink-0" />
-                      <span className="text-zinc-700 dark:text-zinc-200">{result}</span>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </section>
+            {project.results && project.results.length > 0 && (
+              <section>
+                <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mb-6 flex items-center gap-3">
+                  <span className="text-2xl">📈</span>
+                  Résultats
+                </h2>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  {project.results.map((result, index) => (
+                    <Card key={index} className="bg-emerald-500/5 border-emerald-500/20">
+                      <CardContent className="p-4 flex items-start gap-3">
+                        <CheckCircle2 className="w-5 h-5 text-emerald-400 mt-0.5 shrink-0" />
+                        <span className="text-zinc-700 dark:text-zinc-200">{result}</span>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </section>
+            )}
           </div>
 
           {/* Sidebar */}
